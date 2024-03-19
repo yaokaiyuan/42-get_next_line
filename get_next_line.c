@@ -41,8 +41,15 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*str;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (0);
+	if (!str)
+	{
+		str = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		if (!str)
+			return (NULL);
+		str[0] = 0;
+	}
 	str = handle_result(fd, str);
 	if (!str)
 		return (NULL);

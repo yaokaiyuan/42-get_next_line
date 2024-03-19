@@ -24,12 +24,15 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_strchr(const char *s, int c)
 {
-	while ((*s != (char)c) && *s)
-		s++;
-	if (*s)
-		return ((char *)s);
-	else if (!*s && ((char)c) == 0)
-		return ((char *)s);
+	int	i;
+
+	i = 0;
+	while ((s[i] != (char)c) && s[i] && i < BUFFER_SIZE)
+		i++;
+	if (s[i])
+		return ((char *)&s[i]);
+	else if (!s[i] && ((char)c) == 0)
+		return ((char *)&s[i]);
 	else
 		return (NULL);
 }
@@ -40,24 +43,18 @@ char	*ft_strjoin(char *str, char *buff)
 	size_t	j;
 	char	*ptr;
 
-	if (!str)
-	{
-		str = (char *)malloc(sizeof(char));
-		str[0] = '\0';
-	}
 	if (str == NULL || buff == NULL)
 		return (NULL);
 	ptr = malloc(sizeof(char) * (ft_strlen(str) + ft_strlen(buff) + 1));
 	if (ptr == NULL)
 		return (NULL);
 	i = -1;
-	j = 0;
-	if (str)
-		while (str[i++])
-			ptr[i] = str[i];
+	while (str[++i])
+		ptr[i] = str[i];
+    j = 0;
 	while (buff[j])
 		ptr[i++] = buff[j++];
-	ptr[ft_strlen(str) + ft_strlen(buff)] = '\0';
+	ptr[i] = '\0';
 	free(str);
 	return (ptr);
 }
