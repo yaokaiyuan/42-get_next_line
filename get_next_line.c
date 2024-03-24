@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:14:03 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/03/17 17:43:38 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/03/24 18:31:35 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*get_next_line(int fd)
 		str = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 		if (!str)
 			return (NULL);
-		str[0] = 0;
+		str[0] = '\0';
 	}
 	str = handle_result(fd, str);
 	if (!str)

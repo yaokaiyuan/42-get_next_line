@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:14:07 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/03/24 18:10:41 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/03/24 18:29:09 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
-	while ((s[i] != (char)c) && s[i] && i < BUFFER_SIZE)
+	while ((s[i] != (char)c) && s[i])
 		i++;
 	if (s[i])
 		return ((char *)&s[i]);
