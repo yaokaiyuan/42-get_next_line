@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:14:07 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/03/17 18:05:41 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/03/24 18:10:41 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ char	*ft_strjoin(char *str, char *buff)
 	i = -1;
 	while (str[++i])
 		ptr[i] = str[i];
-    j = 0;
+	j = 0;
 	while (buff[j])
 		ptr[i++] = buff[j++];
-	ptr[i] = '\0';
+	ptr[ft_strlen(str) + ft_strlen(buff)] = '\0';
 	free(str);
 	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:14:10 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/03/17 18:02:23 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/03/24 14:53:48 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 420
+#  define BUFFER_SIZE 1
 # endif
 
 size_t	ft_strlen(const char *s);
