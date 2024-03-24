@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:14:07 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/03/24 18:29:09 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/03/24 21:52:03 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*handle_line(char *str)
 
 	i = 0;
 	if (!str[i])
-		return (NULL);
+		return (0);
 	while (str[i] && str[i] != '\n')
 		i++;
 	tmp = (char *)malloc(sizeof(char) * (i + 2));

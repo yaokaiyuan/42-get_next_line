@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:14:03 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/03/24 18:31:35 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/03/24 21:52:26 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,14 @@ char	*get_next_line(int fd)
 	static char	*str;
 
 	if (BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	{
+		if (str)
+		{
+			free(str);
+			str = NULL;
+		}
 		return (0);
+	}
 	if (!str)
 	{
 		str = malloc(sizeof(char) * (BUFFER_SIZE + 1));

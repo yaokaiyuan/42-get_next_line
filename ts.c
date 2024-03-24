@@ -12,14 +12,17 @@ int main()
     }
     
     str = get_next_line(fd);
-    if (str == NULL)
-    {
-    	printf("Reached end of file or encountered an error\n");
-        return 1;
-    }
-
-    printf("%s", str);
-	free(str);
+	printf("%s", str);
+	if (str)
+		free(str);
+    str = get_next_line(fd);
+	printf("%s", str);
+	if (str)
+		free(str);
+	str = get_next_line(fd);
+    printf("%s\n", str);
+	if (str)
+		free(str);
     close(fd);
     return 0;
 }
