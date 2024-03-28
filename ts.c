@@ -5,7 +5,7 @@ int main()
 {
     static char *str;
 	int fd = open("ts.txt", O_RDONLY);
-    if (fd == -1)
+    if (fd < 0)
     {
         perror("Error opening file");
         return 1;

@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:14:03 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/03/24 21:52:26 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/03/28 18:00:50 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*handle_result(int fd, char *str)
 	char	*buff;
 	int		bytes;
 
-	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE));
 	if (!buff)
 		return (NULL);
 	bytes = 1;
@@ -29,8 +29,7 @@ char	*handle_result(int fd, char *str)
 			free(buff);
 			return (NULL);
 		}
-		buff[bytes] = '\0';
-		str = ft_strjoin(str, buff);
+		str = ft_strjoin(str, buff, bytes);
 	}
 	free(buff);
 	return (str);
@@ -52,7 +51,7 @@ char	*get_next_line(int fd)
 	}
 	if (!str)
 	{
-		str = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		str = malloc(sizeof(char) * (BUFFER_SIZE));
 		if (!str)
 			return (NULL);
 		str[0] = '\0';

@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:14:07 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/03/24 21:52:03 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/03/28 17:37:09 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlen(const char *s)
 {
 	int	len;
 
+	if (!s)
+		return (0);
 	len = 0;
 	while (s[len])
 		len++;
@@ -26,6 +28,8 @@ char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	while ((s[i] != (char)c) && s[i])
 		i++;
@@ -37,24 +41,24 @@ char	*ft_strchr(const char *s, int c)
 		return (NULL);
 }
 
-char	*ft_strjoin(char *str, char *buff)
+char	*ft_strjoin(char *str, char *buff, int buff_len)
 {
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 	char	*ptr;
 
 	if (str == NULL || buff == NULL)
 		return (NULL);
-	ptr = malloc(sizeof(char) * (ft_strlen(str) + ft_strlen(buff) + 1));
+	ptr = malloc(sizeof(char) * (ft_strlen(str) + buff_len + 1));
 	if (ptr == NULL)
 		return (NULL);
 	i = -1;
 	while (str[++i])
 		ptr[i] = str[i];
 	j = 0;
-	while (buff[j])
+	while (j < buff_len)
 		ptr[i++] = buff[j++];
-	ptr[ft_strlen(str) + ft_strlen(buff)] = '\0';
+	ptr[ft_strlen(str) + buff_len] = '\0';
 	free(str);
 	return (ptr);
 }
