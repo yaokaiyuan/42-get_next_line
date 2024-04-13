@@ -1,6 +1,18 @@
 
 #include "get_next_line.h"
 
+size_t	ft_strlen(char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s && s[i] && s[i] != '\n')
+		i++;
+	if (s && s[i] == '\n')
+		i++;
+	return (i);
+}
+
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
@@ -27,18 +39,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (s1)
 		free(s1);
 	return (str);
-}
-
-size_t	ft_strlen(char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s && s[i] && s[i] != '\n')
-		i++;
-	if (s && s[i] == '\n')
-		i++;
-	return (i);
 }
 
 int	ft_clean(char *str)
