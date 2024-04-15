@@ -3,27 +3,27 @@
 
 char	*get_next_line(int fd)
 {
-	static char	line[BUFFER_SIZE + 1];
-	char		*str;
+	static char	characters[BUFFER_SIZE + 1];
+	char		*line;
 	int			i;
 
 	if (fd < 0 || BUFFER_SIZE < 1 || FOPEN_MAX < fd)
 		return (NULL);
-	str = ft_strjoin(0, line);
-	if (ft_clean(line) > 0)
-		return (str);
-	i = read(fd, line, BUFFER_SIZE);
+	line = ft_strjoin(0, characters);
+	if (ft_clean(characters) > 0)
+		return (line);
+	i = read(fd, characters, BUFFER_SIZE);
 	if (i < 0)
 	{
-		free(str);
+		free(line);
 		return (NULL);
 	}
 	while (i > 0)
 	{
-		str = ft_strjoin(str, line);
-		if (ft_clean(line) > 0)
+		line = ft_strjoin(line, characters);
+		if (ft_clean(characters) > 0)
 			break ;
-		i = read(fd, line, BUFFER_SIZE);
+		i = read(fd, characters, BUFFER_SIZE);
 	}
-	return (str);
+	return (line);
 }
